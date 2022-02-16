@@ -18,8 +18,6 @@ builder.Services.AddIdentityServer(options =>
   .AddInMemoryApiScopes(Config.ApiScopes)
   .AddInMemoryIdentityResources(Config.IdentityResources);
 
-builder.Services.AddAuthentication();
-
 var app = builder.Build();
 
 app.UseIdentityServer();

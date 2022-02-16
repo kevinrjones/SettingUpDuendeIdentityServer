@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Linq.Expressions;
 using IdentityModel.Client;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -36,9 +37,10 @@ public class HomeController : Controller
   {
     using var client = new HttpClient();
 
-    var token = await _tokenService.GetToken("weatherapi.read");
+    // var token = await _tokenService.GetToken("weatherapi.read");
+    var token = await HttpContext.GetTokenAsync("access_token");
     
-    client.SetBearerToken(token.AccessToken);
+    client.SetBearerToken(token);
 
     var result = await client.GetAsync("https://localhost:5445/weatherforecast");
 

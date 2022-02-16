@@ -55,8 +55,7 @@ public static class Config
                 PostLogoutRedirectUris = { "https://localhost:5444/signout-callback-oidc" },
 
                 AllowOfflineAccess = true,
-                AllowedScopes = { "openid", "profile", "weatherapi.read" },
-                RequireConsent = true
+                AllowedScopes = { "openid", "profile", "weatherapi.read" }
             },
         };
 }
